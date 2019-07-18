@@ -74,7 +74,7 @@ namespace Employees.Controllers.Api
 
             if (this.ModelState.IsValid)
             {
-                model.ToEntity(employee, this.GetCurrentUserName());
+                model.ToEntity(employee);
                 repo.Edit(employee, GetCurrentUserName());
                 this.Storage.Save();
 

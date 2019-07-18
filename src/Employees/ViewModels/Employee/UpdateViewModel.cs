@@ -11,11 +11,9 @@ namespace Employees.Controllers.Api
 
         public string FirstName { get; set; }
 
-        internal Employee ToEntity(Employee entity, string username)
+        internal Employee ToEntity(Employee entity)
         {
             entity.FirstName = this.FirstName;
-            entity.Modified = DateTime.Now;
-            entity.ModifiedBy = username;
 
             return entity;
         }

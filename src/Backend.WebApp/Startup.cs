@@ -23,8 +23,8 @@ namespace WebApplication
         {
             this._configuration = configuration;
             this._extensionsPath = hostingEnvironment.ContentRootPath + this._configuration["Extensions:Path"];
-            loggerFactory.AddConsole();
-            loggerFactory.AddDebug();
+            //loggerFactory.AddConsole();
+            //loggerFactory.AddDebug();
         }
 
         public void ConfigureServices(IServiceCollection services)
