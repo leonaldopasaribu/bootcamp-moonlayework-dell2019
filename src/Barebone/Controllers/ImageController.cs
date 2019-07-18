@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Barebone.Controllers
@@ -39,7 +37,7 @@ namespace Barebone.Controllers
                 ViewBag.LatestImage = Convert.ToString(TempData["LatestImage"]);
             }
 
-            return View();
+            return Ok(ViewBag.LatestImage);
         }
     }
 }

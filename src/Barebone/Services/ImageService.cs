@@ -39,7 +39,7 @@ namespace Barebone.Services
                         }
                         );
                 }
-                string imageName = Guid.NewGuid().ToString() + "-" + Path.GetExtension(imageToUpload.FileName);
+                string imageName = Guid.NewGuid().ToString() + Path.GetExtension(imageToUpload.FileName);
 
                 CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(imageName);
                 cloudBlockBlob.Properties.ContentType = imageToUpload.ContentType;
