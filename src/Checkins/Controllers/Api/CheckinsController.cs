@@ -1,4 +1,5 @@
 ﻿using Barebone.Controllers;
+using Barebone.Services;
 using Checkins.Data.Abstractions;
 using Checkins.Data.Entities;
 using Checkins.ViewModels.Checkin;
@@ -7,15 +8,19 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Checkins.Controllers.Api
 {
     //[Authorize]
     [Route("api/checkin")]
-    public class CheckinsController : ControllerBaseApi
+    public class CheckinsController : Barebone.Controllers.ControllerBase
     {
-        public CheckinsController(IStorage storage) : base(storage)
+        private readonly IImageService _imageService;
+
+        public CheckinsController(IStorage storage, IImageService imageService) : base(storage)
         {
+            _imageService = imageService;
         }
 
         [HttpGet]
@@ -46,14 +51,17 @@ namespace Checkins.Controllers.Api
         }
 
         [HttpPost]
-        public IActionResult Post(CreateViewModels model)
+        public async Task<IActionResult> Post(CreateViewModels viewModel)
         {
             if (this.ModelState.IsValid)
             {
-                Checkin checkin = model.ToEntity();
+                Checkin entity = viewModel.ToEntity();
                 var repo = this.Storage.GetRepository<ICheckinRepository>();
 
-                repo.Create(checkin, GetCurrentUserName());
+                var imageUrl = await _imageService.UploadImageAsync(viewModel.Image);
+
+                entity.ImageUrl = imageUrl.ToString();
+                repo.Create(entity, GetCurrentUserName());
                 this.Storage.Save();
 
                 return Ok(new { success = true });
