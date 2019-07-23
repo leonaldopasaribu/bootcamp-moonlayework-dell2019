@@ -9,7 +9,7 @@ namespace Checkins.ViewModels.Checkin
     public class CreateViewModels
     {
         //[Required()]
-        public DateTimeOffset Time { get; set; }
+        //public DateTimeOffset Time { get; set; }
         public string Location { get; set; }
         public string Remark { get; set; }
 
@@ -20,7 +20,7 @@ namespace Checkins.ViewModels.Checkin
         {
             return new Data.Entities.Checkin
             {
-                Time = this.Time,
+                //Time = this.Time,
                 Location = this.Location,
                 Remark = this.Remark,
                 //Image = this.Image,

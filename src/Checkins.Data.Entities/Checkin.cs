@@ -8,6 +8,11 @@ namespace Checkins.Data.Entities
 {
     public class Checkin : Entity
     {
+        public Checkin()
+        {
+            this.Time = DateTimeOffset.Now;
+        }
+
         public DateTimeOffset Time { get; set; }
         public string Location { get; set; }
         public string Remark { get; set; }
