@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Checkins.Data.Abstractions\Checkins.Data.Abstractions.csproj" />
+    <ProjectReference Include="..\Data.EntityFramework.SQLServer\Data.EntityFramework.SqlServer.csproj" />
+  </ItemGroup>
+
+</Project>

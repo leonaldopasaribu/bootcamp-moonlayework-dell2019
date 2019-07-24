@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Barebone\Barebone.csproj" />
+    <ProjectReference Include="..\Checkins.Data.Abstractions\Checkins.Data.Abstractions.csproj" />
+    <ProjectReference Include="..\Checkins.Data.Entities\Checkins.Data.Entities.csproj" />
+    <ProjectReference Include="..\Checkins.Data.EntityFramework.SqlServer\Checkins.Data.EntityFramework.SqlServer.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
